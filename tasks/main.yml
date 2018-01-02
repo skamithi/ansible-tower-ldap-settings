@@ -9,6 +9,7 @@
       ldap_group_search: "{{ group_search | default(omit) }}"
       ldap_superuser: "{{ superuser | default(omit) }}"
       ldap_organization_map: "{{ organization_map | default(omit) }}"
+      ldap_team_map: "{{ team_map | default(omit)}}"
       state: "{{ ldap_state | default(present) }}"
       tower_host: "{{ host | default(omit)}}"
       tower_username: "{{ username | default(omit) }}"
