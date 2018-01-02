@@ -17,13 +17,13 @@ Role Variables
 * ``group_search``: Single LDAP group search filter.  Must be a string
 * ``superuser``: Group or User DN defining users with superuser Tower privileges.
 * ``organization_map``: List of dictionaries that map Tower organizations to User or Group LDAP DNs. Each directory has the following structure:
- - _organization_: name of the organization
- -  _users_: Users in this Group DN will be placed in this organization
- - _admins_: Users in this Group DN have admin rights within the Tower organization.
+    - _organization_: name of the organization
+    -  _users_: Users in this Group DN will be placed in this organization
+    - _admins_: Users in this Group DN have admin rights within the Tower organization.
 * ``team_map``: List of dictionaries that map Tower teams  to User or Group LDAP DNs. Each directory has the following structure:
-- _team_: team name
- - _organization_: name of the organization the  team belongs to
- -  _users_: Users in this Group DN will be placed in this team
+   - _team_: team name
+   - _organization_: name of the organization the  team belongs to
+   -  _users_: Users in this Group DN will be placed in this team
 * ``ldap_state``: when set to ``absent`` all LDAP configuration is deleted. Defaults to ``present``.
 * ``host``: Tower hostname
 * ``username``: Tower username. This username must have superuser privileges in order to modify LDAP settings.
