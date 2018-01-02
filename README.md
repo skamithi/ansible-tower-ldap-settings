@@ -1,6 +1,6 @@
 ansible-tower-ldap-settings
 =========
-Sets Ansible Tower LDAP settings. This role is a wrapper for the ``tower_ldap_settings`` Ansible module that is included in this role.
+Sets Ansible Tower LDAP settings. This role is a wrapper for the [``tower_ldap_settings``](library/tower_ldap_settings.py) Ansible module that is included in this role.
 
 Requirements
 ------------
