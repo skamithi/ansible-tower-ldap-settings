@@ -24,6 +24,7 @@ Role Variables
 - _team_: team name
  - _organization_: name of the organization the  team belongs to
  -  _users_: Users in this Group DN will be placed in this team
+* ``ldap_state``: when set to ``absent`` all LDAP configuration is deleted. Defaults to ``present``.
 * ``host``: Tower hostname
 * ``username``: Tower username. This username must have superuser privileges in order to modify LDAP settings.
 * ``password``: Tower user password.
@@ -36,13 +37,14 @@ Example Playbook
   connection: local
   roles:
     - role: tower_ldap_settings
+      ldap_state: present
       server_name: ldapserver.example.local
       bind_dn: "cn=vagrant, OU=Users, DC=example,DC=local"
       bind_password: "{{ vault_bind_password }}"
       user_search:
-        - "ou=users,ou=tower,dc=example,dc=local"
-      group_search:
-      superuser:
+        - "ou=users,dc=example,dc=local"
+      group_search: "ou=groups,ou=example, dc=local"
+      superuser: "cn=toweruser, ou=users,dc=example,dc=local"
       organization_map:
         - organization: webapp
           users: "cn=webapp, ou=groups,dc=example,dc=local"
