@@ -1,5 +1,29 @@
----
 - hosts: localhost
-  remote_user: root
+  connection: local
+  vars:
+    vault_bind_pass: vagrant
+    vault_tower_user: admin
+    vault_tower_pass: tower
+    t_host: 192.168.121.118
+    l_server_name: adserver.example.local
   roles:
-    - tower_ldap_settings
+    - role: tower_ldap_settings
+      ldap_state: present
+      server_name: "{{ l_server_name}}"
+      bind_dn: "cn=vagrant, OU=Users, DC=example,DC=local"
+      bind_password: "{{ vault_bind_pass}}"
+      user_search:
+        - "ou=users,dc=example,dc=local"
+      group_search: "ou=groups,ou=example, dc=local"
+      superuser: "cn=toweruser, ou=users,dc=example,dc=local"
+      organization_map:
+        - organization: webapp
+          users: "cn=webapp, ou=groups,dc=example,dc=local"
+          admins: "ou=webadmins,ou=groups,dc=example,dc=local"
+      team_map:
+        - team: webapp_admins
+          organization: webapp
+          users: "cn=webadmins,ou=groups,dc=example,dc=local"
+      host: "{{ t_host }}"
+      username: "{{ vault_tower_user }}"
+      password: "{{ vault_tower_pass }}"

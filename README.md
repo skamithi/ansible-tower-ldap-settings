@@ -39,8 +39,8 @@ Example Playbook
     - role: tower_ldap_settings
       ldap_state: present
       server_name: ldapserver.example.local
-      bind_dn: "cn=vagrant, OU=Users, DC=example,DC=local"
-      bind_password: "{{ vault_bind_password }}"
+      bind_dn: "cn=binduser, OU=Users, DC=example,DC=local"
+      bind_password: "{{ vault_bind_pass }}"
       user_search:
         - "ou=users,dc=example,dc=local"
       group_search: "ou=groups,ou=example, dc=local"

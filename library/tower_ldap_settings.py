@@ -150,7 +150,7 @@ EXAMPLES = '''
     state: present
     ldap_server_name: adserver.example.local
     ldap_bind_dn: "cn=towerbinduser,ou=users,dc=example,dc=local"
-    ldap_bind_password: "{{ vault_bind_password }}"
+    ldap_bind_password: "{{ vault_bind_pass }}"
     ldap_user_search:
         - "ou=users,dc=example,dc=local"
     ldap_group_search: "ou=groups,dc=example,dc=local"
