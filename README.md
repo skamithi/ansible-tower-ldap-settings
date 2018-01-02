@@ -67,4 +67,4 @@ MIT
 Author Information
 ------------------
 
-Twitter: @linuxsimba
+Twitter: [@linuxsimba](https://twitter.com/linuxsimba)
