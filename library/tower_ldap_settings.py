@@ -466,6 +466,8 @@ def transform_ldap_organization_map(org_map):
     Convert Tower formatted org map to this module's Org format
     """
     results = None
+    if not org_map:
+      return {}
     if isinstance(org_map, dict):
         results = []
         for _key, _value in org_map.items():
