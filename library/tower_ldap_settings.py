@@ -295,7 +295,10 @@ def modify_ldap_config(module, check_mode=False):
                         _value = str(_value)
                     else:
                         _value = json.dumps(_value, cls=FixBoolValuesEncoder)
-                    module.tower_settings.modify(real_ldap_attr, _value)
+                    try:
+                        module.tower_settings.modify(real_ldap_attr, _value)
+                    except:
+                        module.fail_json(msg="Real ldap attr %s with value %s" % (real_ldap_attr, _value))
                 module.changed_values.append(_ldap_attr)
 
 
